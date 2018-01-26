@@ -1,7 +1,14 @@
+/**
+ * 该函数用来生成mock数据
+ * @type {MockXMLHttpRequest}
+ */
+
 var Mockjs = require('mockjs');
 var _ = require('lodash');
 let Random = Mockjs.Random;
 let data = {};
+
+
 
 //生成随机的新闻
 function generateNew() {
@@ -21,12 +28,13 @@ function generateNew() {
     })
 }
 
+//生成随机的用户数据
 function generateUser() {
     data.users = [];
     _.times(100, (i) => {
         let name = Random.cname();
         data.users.push(Mockjs.mock({
-            'id|+1': 1,
+            'id|': Random.increment(),
             'name': name,
             'age|18-50': 1,
             'email': '@email',

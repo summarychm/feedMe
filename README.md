@@ -16,6 +16,7 @@
 * json-server
 * mockjs
 * lodash
+* query-string
 
 
 
