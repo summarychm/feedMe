@@ -9,7 +9,6 @@ let Random = Mockjs.Random;
 let data = {};
 
 
-
 //生成随机的新闻
 function generateNew() {
     //生成3张随机图片
@@ -33,13 +32,14 @@ function generateUser() {
     data.users = [];
     _.times(100, (i) => {
         let name = Random.cname();
+        let id = Random.increment();
         data.users.push(Mockjs.mock({
-            'id|': Random.increment(),
+            'id': id,
             'name': name,
             'age|18-50': 1,
             'email': '@email',
             'birthday': '@date("yyyy-MM-dd")',
-            'avatar': Random.image('200X100', '#4A7BF7', '#FFF', name),
+            'avatar': `https://randomuser.me/api/portraits/${id % 2 ? "men" : "women"}/${id}.jpg`,
             'phone': /^1[385][1-9]\d{8}/,
             'address': '@county(true)'
         }));

@@ -1,4 +1,5 @@
-const BASE_URL = "http://192.168.1.5:5001";
+// const BASE_URL = "http://192.168.1.5:5001";
+const BASE_URL = "http://192.168.40.158:5001";
 
 export const Config = {
     accessToken: "abc123",
@@ -6,8 +7,8 @@ export const Config = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
     },
-    API: {
+    URL: {
         users: BASE_URL + "/users",
-        mean: BASE_URL + "/me"
+        me: BASE_URL + "/me"
     }
 }
