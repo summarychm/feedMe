@@ -1,9 +1,12 @@
 import React from 'react';
 import {
     ScrollView,
-    Text
+    Text,
+    View
 } from 'react-native';
 import {Tile, List, ListItem, Button} from 'react-native-elements';
+import {polyfill} from '../tools/polyfillTools';
+import {Config} from "../config/config";
 
 class Detail extends React.Component {
     constructor() {
@@ -11,26 +14,37 @@ class Detail extends React.Component {
         this.state = {
             user: {}
         };
-
     }
 
     render() {
+        console.log(this.props);
+        let navigation = this.props.navigation;
         let user = {};
-        user = this.props.navigation.state.params || this.props.screenProps.admin;
-        // console.log(user);
+        //通讯录好友或管理员本人
+        user = navigation.state.params ? navigation.state.params.user : this.props.screenProps.admin;
         return (<ScrollView>
             <Tile
                 imageSrc={{uri: user.avatar}}
                 featured
                 title={`${user.name}`}
-                caption={user.email}
+                caption={polyfill.phoneFormat(user.phone)}
             />
 
-            <Button
-                title="Settings"
-                buttonStyle={{marginTop: 20}}
-                /* onPress={this.handleSettingsPress}*/
-            />
+            <View style={{flexDirection: "row", justifyContent: "space-between", padding: 10}}>
+                <Button
+                    title="Call"
+                    medium
+                    icon={{name: "ios-call", type: "ionicon"}}
+                    buttonStyle={{backgroundColor: "#2196f3", width: Config.Styles.DeviceWidth * 0.3}}
+                    /* onPress={this.handleSettingsPress}*/
+                />
+                <Button
+                    title="SMS"
+                    medium
+                    icon={{name: "ios-chatbubbles", type: "ionicon"}}
+                    buttonStyle={{backgroundColor: "#2196f3", width: Config.Styles.DeviceWidth * 0.3}}
+                />
+            </View>
 
             <List>
                 <ListItem

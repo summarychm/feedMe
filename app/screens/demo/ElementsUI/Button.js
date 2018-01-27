@@ -15,7 +15,7 @@ class ButtonDemo extends React.Component {
     }
 
     render() {
-        console.log(this.props);
+        //console.log(this.props);
         return (<View>
             <Text style={{fontSize: 30}}>Button</Text>
             <Button

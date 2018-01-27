@@ -77,8 +77,7 @@ class Feed extends Component {
     }
     //查看详情
     onLearnMore = (user) => {
-        //console.log(user);
-        this.props.navigation.navigate('Detail', {...user})
+        this.props.navigation.navigate('Detail', {user:user})
     }
     //下拉刷新
     _onRefresh = () => {

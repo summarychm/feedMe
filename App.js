@@ -35,6 +35,7 @@ export default class App extends React.Component {
     }
 
     render() {
+        console.log(this.state.admin);
         return (<Tabs screenProps={{"admin": this.state.admin}}/>)
     }
 }
