@@ -1,14 +1,11 @@
 import React from 'react';
 import {
     AsyncStorage,
-    Platform,
-    StyleSheet,
     Text,
     View
 } from 'react-native';
 
 import {Tabs} from "./app/config/router";
-import TabAnimations from './app/screens/demo/navigation/AnimatedTabsExample';
 
 import {Config} from "./app/config/config";
 import {Request} from './app/tools/Requrest';
@@ -33,9 +30,7 @@ export default class App extends React.Component {
             console.error("获取登录信息出错,", err);
         })
     }
-
     render() {
-        console.log(this.state.admin);
         return (<Tabs screenProps={{"admin": this.state.admin}}/>)
     }
 }

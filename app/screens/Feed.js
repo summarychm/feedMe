@@ -126,7 +126,6 @@ class Feed extends Component {
                 nextIndex: nextIndex + 1,
                 users: newData
             }, () => {
-                // console.log(this.state);
             })
         }).catch(error => {
             this.setState({
@@ -136,7 +135,6 @@ class Feed extends Component {
             console.error("_fetchData方法出错,", error)
         });
     }
-
 }
 
 export default Feed;

@@ -2,10 +2,10 @@ import React from 'react';
 import {
     ScrollView,
     StyleSheet,
-    Text,
-    View
+    View,
+    Linking
 } from 'react-native';
-import {Tile, List, ListItem, Button,Avatar} from 'react-native-elements';
+import {Tile, List, Text, ListItem, Button, Avatar} from 'react-native-elements';
 import {polyfill} from '../tools/polyfillTools';
 import {Config} from "../config/config";
 
@@ -18,7 +18,7 @@ class Detail extends React.Component {
     }
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         let navigation = this.props.navigation;
         let user = {};
         //通讯录好友或管理员本人
@@ -34,7 +34,7 @@ class Detail extends React.Component {
                 <Text style={{
                     fontSize: 30,
                     color: Config.Styles.ColorMain,
-                    marginLeft: 30,
+                    marginLeft: 50,
                 }}>{user.name}</Text>
             </View>
 
@@ -43,14 +43,16 @@ class Detail extends React.Component {
                     title="Call"
                     medium
                     icon={{name: "ios-call", type: "ionicon"}}
-                    buttonStyle={{backgroundColor: "#2196f3", width: Config.Styles.DeviceWidth * 0.3}}
-                    /* onPress={this.handleSettingsPress}*/
+                    buttonStyle={{backgroundColor: Config.Styles.ColorMain, width: Config.Styles.DeviceWidth * 0.3}}
+                    onPress={() => {
+                        Linking.openURL('tel:' + user.phone)
+                    }}
                 />
                 <Button
                     title="SMS"
                     medium
                     icon={{name: "ios-chatbubbles", type: "ionicon"}}
-                    buttonStyle={{backgroundColor: "#2196f3", width: Config.Styles.DeviceWidth * 0.3}}
+                    buttonStyle={{backgroundColor: Config.Styles.ColorMain, width: Config.Styles.DeviceWidth * 0.3}}
                 />
             </View>
 

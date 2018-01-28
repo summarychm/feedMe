@@ -14,6 +14,7 @@ export const Config = {
         me: BASE_URL + "/me"
     },
     Styles:{
+        ColorMain:"#2196f3",
         DeviceWidth:Dimensions.get("window").width,
         DeviceHeight:Dimensions.get("window").height,
     }

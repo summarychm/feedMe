@@ -35,7 +35,7 @@ const App = TabNavigator(
                 ),
             }
         },
-       CardDemo: {
+        CardDemo: {
             screen: CardDemo,
             path: '/CardDemo',
             navigationOptions: {
@@ -67,7 +67,7 @@ const App = TabNavigator(
         }
     }, {
         initialRouteName: 'ButtonDemo',
-        tabBarPosition:'bottom',
+        tabBarPosition: 'bottom',
         animationEnabled: true,
         swipeEnabled: true,
 
@@ -85,59 +85,14 @@ const App = TabNavigator(
         },
     }
 )
-/*  CardDemo: {
-           screen: CardDemo,
-           path: '/CardDemo',
-           navigationOptions: {
-               tabBarLabel: 'CardDemo',
-               tabBarIcon: ({tintColor, focused}) => (
-                   <Icon
-                       name='face'
-                       size={30}
-                       type="MaterialIcons"
-                       color={tintColor}
-                   />
-               ),
-           }
-       },*/
-
 export default class ElementIndex extends React.Component {
     constructor() {
         super();
-        this.state = {  };
+        this.state = {};
     }
 
     render() {
-        return (<App screenProps={{aaa:1,bbb:222}} />)
-
-        /* return (
-             <ScrollView>
-
-                 <CardDemo users={this.users}/>
-                 <ButtonDemo/>
-                 <AvatarDemo/>
-
-
-                 <Text>Badge</Text>
-                 <Badge
-                     value={3}
-                     textStyle={{color: 'orange'}}
-                 />
-                 <Badge
-                     containerStyle={{backgroundColor: 'red'}}
-                     wrapperStyle={{backgroundColor: 'green', height: 50}}
-                 >
-                     <Text>User 1</Text>
-                 </Badge>
-                 <Badge onPress={() => {
-                     console.log('pressed')
-                 }} value="5"/>
-
-                 <Badge component={TouchableNative} value={10}/>
-
-
-             </ScrollView>
-         )*/
+        return (<App screenProps={{aaa: 1, bbb: 222}}/>)
     }
 }
 

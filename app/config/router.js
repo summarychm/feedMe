@@ -1,12 +1,12 @@
 import React from 'react';
-import {Image} from 'react-native';
+import {Image,Alert} from 'react-native';
 import {TabNavigator, StackNavigator, NavigationActions} from 'react-navigation';
 import {Button} from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Feed from '../screens/Feed';
 import Detail from '../screens/Detail';
-import Settings from '../screens/Settings';
+//import Settings from '../screens/Settings';
 
 
 const MainStack = StackNavigator({
@@ -25,21 +25,24 @@ const MainStack = StackNavigator({
             headerRight: <Button
                 icon={{name: "ios-menu", type: "ionicon"}}
                 buttonStyle={{backgroundColor: "#2196f3"}}
-                onPress={() => {
-                    navigation.dispatch(
-                        NavigationActions.navigate({routeName: 'Settings', params: {user: navigation.state.params.user}}));
-                }}
+                onPress={()=>{Alert.alert("提示","准备等React-Native-Element发布1.0正式版后开发编辑界面!")}}
             />
         })
     },
+    /*
+     navigation.dispatch(
+        NavigationActions.navigate({
+            routeName: 'Settings',
+            params: {user: navigation.state.params.user}
+        }));
     Settings: {
-        screen: Settings,
-        path: "/Settings",
-        navigationOptions: {
-            title: "Settings",
-        }
+         screen: Settings,
+         path: "/Settings",
+         navigationOptions: {
+             title: "Settings",
+         }
 
-    }
+     }*/
 });
 
 const Account = StackNavigator({
