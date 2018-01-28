@@ -1,10 +1,11 @@
 import React from 'react';
 import {
     ScrollView,
+    StyleSheet,
     Text,
     View
 } from 'react-native';
-import {Tile, List, ListItem, Button} from 'react-native-elements';
+import {Tile, List, ListItem, Button,Avatar} from 'react-native-elements';
 import {polyfill} from '../tools/polyfillTools';
 import {Config} from "../config/config";
 
@@ -23,12 +24,19 @@ class Detail extends React.Component {
         //通讯录好友或管理员本人
         user = navigation.state.params ? navigation.state.params.user : this.props.screenProps.admin;
         return (<ScrollView>
-            <Tile
-                imageSrc={{uri: user.avatar}}
-                featured
-                title={`${user.name}`}
-                caption={polyfill.phoneFormat(user.phone)}
-            />
+            <View style={[styles.flexRow, {justifyContent: 'center', alignItems: 'center'}]}>
+                <Avatar
+                    xlarge
+                    rounded
+                    source={{uri: user.avatar}}
+                    activeOpacity={0.7}
+                />
+                <Text style={{
+                    fontSize: 30,
+                    color: Config.Styles.ColorMain,
+                    marginLeft: 30,
+                }}>{user.name}</Text>
+            </View>
 
             <View style={{flexDirection: "row", justifyContent: "space-between", padding: 10}}>
                 <Button
@@ -73,5 +81,12 @@ class Detail extends React.Component {
         </ScrollView>)
     }
 }
+
+const styles = StyleSheet.create({
+    flexRow: {
+        flexDirection: "row",
+        padding: 10
+    }
+})
 
 export default Detail;

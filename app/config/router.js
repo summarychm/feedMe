@@ -6,13 +6,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Feed from '../screens/Feed';
 import Detail from '../screens/Detail';
+import Settings from '../screens/Settings';
 
-const navigateAction = NavigationActions.navigate({
-    routeName: 'Feed',
-    params: {},
-    // navigate can have a nested navigate action that will be run inside the child router
-    action: NavigationActions.navigate({routeName: 'Detail'})
-})
 
 const MainStack = StackNavigator({
     Feed: {
@@ -27,15 +22,23 @@ const MainStack = StackNavigator({
         path: '/Detail',
         navigationOptions: ({navigation}) => ({
             title: `${navigation.state.params.user ? navigation.state.params.user.name : ""}的详细信息`,
-            headerRight: <Button title={'Edit'}
-                                 icon={{name: "ios-menu", type: "ionicon"}}
-                                 buttonStyle={{backgroundColor: "#2196f3"}}
-                                 onPress={() => {
-                                     navigation.dispatch(
-                                         NavigationActions.navigate({routeName: 'Feed',params: {}}));
-                                 }}
+            headerRight: <Button
+                icon={{name: "ios-menu", type: "ionicon"}}
+                buttonStyle={{backgroundColor: "#2196f3"}}
+                onPress={() => {
+                    navigation.dispatch(
+                        NavigationActions.navigate({routeName: 'Settings', params: {user: navigation.state.params.user}}));
+                }}
             />
         })
+    },
+    Settings: {
+        screen: Settings,
+        path: "/Settings",
+        navigationOptions: {
+            title: "Settings",
+        }
+
     }
 });
 
