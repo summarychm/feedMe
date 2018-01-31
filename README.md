@@ -16,7 +16,7 @@
 
 >PS 如果编译期间出现如下错误:   
 > vector-icons Haste package `react-native-vector-icons` was found. However the module `Ionicons` could not be found within the package. Indeed, none of these files exist:     
-> 请删除./node_modules/react-native/local-cli/core/__fixtures__/files/package.json.   
+> 请删除./node_modules/react-native/local-cli/core/\_\_fixtures\_\_/files/package.json.   
 > [参考链接](https://github.com/oblador/react-native-vector-icons/issues/626)   
 > 重新打包即可运行  
 
